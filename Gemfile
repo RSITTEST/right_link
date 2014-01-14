@@ -5,7 +5,11 @@ gemspec
 
 # Fresh off the assembly line
 gem 'right_support', '~> 2.7'
-gem 'right_agent', '~> 1.0.3'
+# gem 'right_agent', '~> 1.0.3'
+gem 'right_agent',
+  :git => 'https://github.com/rightscale/right_agent.git',
+  :branch => "experimental_profile_script"
+
 gem 'right_amqp', '~> 0.7'
 gem 'right_popen', '~> 2.0'
 gem 'right_git'
