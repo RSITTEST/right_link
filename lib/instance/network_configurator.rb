@@ -178,6 +178,10 @@ module RightScale
       raise NotImplemented
     end
 
+    def device_name_from_mac(mac)
+      raise NotImplemented
+    end
+
     # Sets single network adapter static IP addresse and nameservers
     #
     # Parameters
@@ -190,7 +194,7 @@ module RightScale
       # optional
       nameservers_string = ENV["RS_IP#{n_ip}_NAMESERVERS"]
       gateway = ENV["RS_IP#{n_ip}_GATEWAY"]
-      device = shell_escape_if_necessary(os_net_devices[n_ip])
+      device = shell_escape_if_necessary(device_name_from_mac(ENV["RS_IP#{n_ip}_MAC"]))
 
       if ipaddr
         logger.info "Setting up static IP address #{ipaddr} for #{device}"
